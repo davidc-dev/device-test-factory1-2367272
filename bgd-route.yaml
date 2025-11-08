@@ -16,7 +16,7 @@ spec:
   wildcardPolicy: None
   to:
     kind: Service
-    name: bgd
+    name: {{DEVICE_NAME}}-{{DEVICE_ID}}-service
     weight: 100
 status:
   ingress:
