@@ -27,7 +27,7 @@ spec:
           value: "blue"
         resources: {}
         volumeMounts:
-          - name: device-config
+          - name: {{DEVICE_NAME}}-{{DEVICE_ID}}-configmap
             mountPath: /tmp/device.yaml
             subPath: device.yaml
       volumes:
