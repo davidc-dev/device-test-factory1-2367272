@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: bgd
-  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-DEPLOYMENT
+  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-deployment
   namespace: device-apps
 spec:
   replicas: 1
