@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: bgd
-  name: bgd
+  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-ROUTE
   namespace: device-apps
 spec:
   host: ""
