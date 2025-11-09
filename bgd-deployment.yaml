@@ -19,6 +19,26 @@ spec:
       labels:
         app: {{DEVICE_NAME}}-{{DEVICE_ID}}-app
     spec:
+      initContainers:
+      - name: init-seed
+        image: busybox
+        command: ["sh", "-c"]
+        args:
+          - |
+            if [ ! -f /data/.initialized ]; then
+              echo "Seeding PVC from NFS..."
+              cp -R /nfs/. /data/
+              touch /data/.initialized
+            else
+              echo "PVC already initialized."
+            fi
+        volumeMounts:
+          - name: app-data
+            mountPath: /data
+          - name: nfs-seed
+            mountPath: /nfs
+            readOnly: true
+
       containers:
       - image: quay.io/redhatworkshops/bgd:latest
         name: bgd
@@ -30,8 +50,19 @@ spec:
           - name: device-config
             mountPath: /tmp/device.yaml
             subPath: device.yaml
+          - name: app-data
+            mountPath: /data
+
       volumes:
         - name: device-config
           configMap:
             name: {{DEVICE_NAME}}-{{DEVICE_ID}}-configmap
+        - name: app-data
+          persistentVolumeClaim:
+            claimName: {{DEVICE_NAME}}-{{DEVICE_ID}}-pvc
+
+        - name: nfs-seed
+          nfs:
+            server: 192.168.68.172
+            path: /data
 ---
