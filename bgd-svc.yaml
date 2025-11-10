@@ -4,8 +4,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: {{DEVICE_NAME}}-{{DEVICE_ID}}-app
-  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-service
+    app: test-factory1-2367272-app
+  name: test-factory1-2367272-service
   namespace: device-apps
 spec:
   ports:
@@ -13,5 +13,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: {{DEVICE_NAME}}-{{DEVICE_ID}}-app
+    app: test-factory1-2367272-app
 ---

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-pvc
+  name: test-factory1-2367272-pvc
   namespace: device-apps
 spec:
   accessModes:

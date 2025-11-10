@@ -1,0 +1,28 @@
+schemaVersion: 2.2.0
+metadata:
+  name: device-test-factory1-2367272
+attributes:
+  controller.devfile.io/editor: che-code
+components:
+  - name: dev-tools
+    container:
+      image: quay.io/devspaces/udi-rhel8:latest
+      memoryLimit: 2Gi
+      mountSources: true
+commands:
+  - id: git-config
+    exec:
+      component: dev-tools
+      workingDir: /projects
+      commandLine: |
+        git config --global user.name "Device Workflow Bot" && \
+        git config --global user.email "auto@example.com"
+      label: Configure Git
+events:
+  postStart:
+    - git-config
+projects:
+  - name: device-test-factory1-2367272
+    git:
+      remotes:
+        origin: https://github.com/davidc-dev/device-test-factory1-2367272.git

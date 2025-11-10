@@ -3,11 +3,11 @@ kind: Route
 metadata:
   creationTimestamp: null
   labels:
-    app: {{DEVICE_NAME}}-{{DEVICE_ID}}-configmap-app
-  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-route
+    app: test-factory1-2367272-configmap-app
+  name: test-factory1-2367272-route
   namespace: device-apps
 spec:
-  host: "{{DEVICE_NAME}}-{{DEVICE_ID}}.apps.{{CLUSTER_FQDN}}"
+  host: "test-factory1-2367272.apps.demo.dcdevlab.net"
   port:
     targetPort: 8080
   tls:
@@ -16,7 +16,7 @@ spec:
   wildcardPolicy: None
   to:
     kind: Service
-    name: {{DEVICE_NAME}}-{{DEVICE_ID}}-service
+    name: test-factory1-2367272-service
     weight: 100
 status:
   ingress:

@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-configmap
+  name: test-factory1-2367272-configmap
   namespace: device-apps
 data:
   device.yaml: |
-    device_id: {{DEVICE_ID}}
-    device_name: {{DEVICE_NAME}}
+    device_id: 2367272
+    device_name: test-factory1
     

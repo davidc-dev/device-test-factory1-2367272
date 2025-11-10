@@ -4,20 +4,20 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: {{DEVICE_NAME}}-{{DEVICE_ID}}-app
-  name: {{DEVICE_NAME}}-{{DEVICE_ID}}-deployment
+    app: test-factory1-2367272-app
+  name: test-factory1-2367272-deployment
   namespace: device-apps
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{DEVICE_NAME}}-{{DEVICE_ID}}-app
+      app: test-factory1-2367272-app
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{DEVICE_NAME}}-{{DEVICE_ID}}-app
+        app: test-factory1-2367272-app
     spec:
       initContainers:
       - name: init-seed
@@ -56,10 +56,10 @@ spec:
       volumes:
         - name: device-config
           configMap:
-            name: {{DEVICE_NAME}}-{{DEVICE_ID}}-configmap
+            name: test-factory1-2367272-configmap
         - name: app-data
           persistentVolumeClaim:
-            claimName: {{DEVICE_NAME}}-{{DEVICE_ID}}-pvc
+            claimName: test-factory1-2367272-pvc
         - name: nfs-seed
           persistentVolumeClaim:
             claimName: nfs-seed
